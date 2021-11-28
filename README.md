@@ -1,1 +1,1 @@
-# learning-cv2
+# learning-opencv
