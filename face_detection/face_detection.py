@@ -1,19 +1,26 @@
 import cv2
 
 face_cascade = cv2.CascadeClassifier("face_detection/haarcascade_frontalface_default.xml")
-img = cv2.imread("face_detection/photo.jpg")
-cv2.imshow("image", img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+img = cv2.imread("face_detection/sagar3.jpg")
+shape = img.shape
+
+# cv2.imshow("image", img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
 face = face_cascade.detectMultiScale(img,
-scaleFactor = 1.05,
+scaleFactor = 1.005,
 minNeighbors = 5
 )
 for x, y, w, h in face:
-    img1 = cv2.rectangle(img, (x, y), (x+w, y+h), (0,255,0), 4)
-# print(face)
+    img = cv2.rectangle(img, (x, y), (x+w, y+h), (0,255,0), 4)
+print(face)
 
-cv2.imshow("image", img1)
+resized_image = cv2.resize(img, (int(shape[1]/3), int(shape[0]/3)))
+
+
+cv2.imshow("image", resized_image)
+# cv2.imshow("image", img)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
