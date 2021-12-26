@@ -9,5 +9,7 @@ print(frame)
 
 
 time.sleep(5)
+cv2.imshow("image", frame)
+cv2.waitKey(0)
 video.release()
 cv2.destroyAllWindows()
